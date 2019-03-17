@@ -1,0 +1,19 @@
+<div [ngClass]="alerta" class="alert" role="alert">
+  <h4>Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+</div>
+
+<button type="button" class="btn btn-info" (click)="alerta= 'alert-info'">INFO</button>
+<button type="button" class="btn btn-success" (click)="alerta= 'alert-success'">SUCCESS</button>
+<button type="button" class="btn btn-danger" (click)="alerta= 'alert-danger'">DANGER</button>
+
+<br><br>
+
+<h3 [ngClass]="{'text-danger': propiedades.danger, 'text-info': !propiedades.danger }">Hola mundo</h3>
+
+<button (click)="propiedades.danger = !propiedades.danger" 
+    type="button" class="btn"
+    [ngClass]="{'btn-danger': propiedades.danger, 'btn-info': !propiedades.danger}">
+Cambiar
+</button>
