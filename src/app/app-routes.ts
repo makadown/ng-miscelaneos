@@ -6,17 +6,15 @@ import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { UsuarioNuevoComponent } from './componentes/usuario/usuario-nuevo.component';
 import { UsuarioDetalleComponent } from './componentes/usuario/usuario-detalle.component';
 import { UsuarioEditarComponent } from './componentes/usuario/usuario-editar.component';
+import { USUARIO_ROUTES } from './componentes/usuario/usuario.routes';
 
 const APP_ROUTES: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'usuario/:id', component: UsuarioComponent,
-      children: [
-        { path: 'nuevo', component: UsuarioNuevoComponent },
-        { path: 'editar', component: UsuarioEditarComponent },
-        { path: 'detalle', component: UsuarioDetalleComponent },
-        { path: '**', pathMatch: 'full', redirectTo: 'nuevo' }
-      ] },
-    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: 'home', component: HomeComponent },
+  {
+    path: 'usuario/:id', component: UsuarioComponent,
+    children: USUARIO_ROUTES
+  },
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
